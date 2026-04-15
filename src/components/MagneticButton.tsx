@@ -51,16 +51,13 @@ export function MagneticButton({
         y.set(0);
     };
 
-    let baseStyles = "relative inline-flex items-center justify-center overflow-hidden px-8 py-4 uppercase tracking-widest text-sm font-medium transition-colors focus:outline-none";
-    let variantStyles = "";
-
-    if (variant === "primary") {
-        variantStyles = "bg-primary text-primary-foreground hover:bg-[#A3824A]";
-    } else if (variant === "secondary") {
-        variantStyles = "bg-secondary text-secondary-foreground hover:bg-[#111]";
-    } else if (variant === "outline") {
-        variantStyles = "border border-border/50 backdrop-blur-sm bg-transparent hover:bg-white/5";
-    }
+    const baseStyles = "relative inline-flex items-center justify-center overflow-hidden px-8 py-4 uppercase tracking-widest text-sm font-medium transition-colors focus:outline-none";
+    
+    const variantStyles = {
+        primary: "bg-primary text-primary-foreground hover:bg-[#A3824A]",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-[#111]",
+        outline: "border border-border/50 backdrop-blur-sm bg-transparent hover:bg-white/5",
+    }[variant];
 
     return (
         <motion.button
