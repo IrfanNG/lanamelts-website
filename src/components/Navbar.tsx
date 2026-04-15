@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
 import { ShoppingBag, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +20,8 @@ export function Navbar() {
     return (
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-[100vw] ${isScrolled
-                    ? "bg-[#FDFCFB]/80 dark:bg-[#1A0F0A]/80 backdrop-blur-md border-b border-[#e6e6e6]/50 dark:border-[#38241a]/50 py-4"
-                    : "bg-transparent py-6"
+                ? "bg-[#FDFCFB]/80 dark:bg-[#1A0F0A]/80 backdrop-blur-md border-b border-[#e6e6e6]/50 dark:border-[#38241a]/50 py-4"
+                : "bg-transparent py-6"
                 }`}
         >
             <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
@@ -35,6 +35,7 @@ export function Navbar() {
                             </button>
                         </SheetTrigger>
                         <SheetContent side="left" className="w-[300px] sm:w-[400px] border-r border-[#38241a] bg-[#FDFCFB] dark:bg-[#1A0F0A]">
+                            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                             <div className="flex flex-col gap-8 mt-12 pl-4">
                                 {["Shop", "Our Story", "Corporate Gifting", "FAQ"].map((link) => (
                                     <a key={link} href={`#${link.toLowerCase().replace(" ", "-")}`} className="font-serif text-3xl tracking-wide dark:text-[#FDFCFB] hover:text-primary transition-colors">
